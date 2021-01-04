@@ -48,8 +48,8 @@ button:hover {
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
-    <label for="lname">PassWord</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <label for="pass">PassWord</label>
+    <input type="text" id="pass" name="PassWord" placeholder="Password">
 	<div id="err"> </div>
     <button id="submit" value="Submit">submit</button>
   </form>
@@ -58,17 +58,17 @@ button:hover {
 </body>
 <script>
     $(document).ready(function(){
-        $('#submit').click(function(){
+        $('#submit').click(function(e){
             var user= $('#fname').val();
-            var pass= $('#lname').val();
+            var pass= $('#pass').val();
             console.log(user);
             console.log(pass);
             if((user.length<=2) || (pass.length<=3))
             {
                 $('#err').html('**User name or password is worng');							
                 $('#err').css('color','red');
-              //  e.preventDefault();
-                return false;
+                e.preventDefault();
+              //  return false;
             }
              
         });
